@@ -1,0 +1,137 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fff9e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container styles */
+.tq-container {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* Thank you box styles */
+.thank-you-box {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+/* Header with checkmark icon */
+.thank-you-box::before {
+    content: "";
+    display: block;
+    height: 110px;
+    background-color: #fce48a;
+    position: relative;
+}
+
+.thank-you-box::after {
+    content: "";
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fce48a'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Title styles */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+/* Text styles */
+.conclusion-text {
+    color: #666;
+    margin: 15px 0;
+    padding: 0 20px;
+}
+
+/* Estimated delivery section */
+.thank-you-box p:nth-of-type(2) {
+    background-color: #f9f9f9;
+    margin: 25px auto;
+    padding: 15px;
+    width: 90%;
+    border-radius: 8px;
+    color: #555;
+    position: relative;
+    padding-left: 45px;
+}
+
+/* Truck icon for delivery */
+.thank-you-box p:nth-of-type(2)::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fce48a'%3E%3Cpath d='M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Return to home button */
+.backHomeButton {
+    margin: 30px 0;
+    padding-bottom: 20px;
+}
+
+.home-link {
+    display: inline-block;
+    background-color: #fce48a;
+    color: #333;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    position: relative;
+    padding-left: 40px;
+}
+
+.home-link:hover {
+    background-color: #f9d95c;
+}
+
+/* Home icon for button */
+.home-link::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
