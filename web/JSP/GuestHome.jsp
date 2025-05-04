@@ -14,9 +14,9 @@
     </head>
     <body>
         <section id="header" class="header">
-            <a href="GuestHome.jsp"><h2 style="font-weight: bolder; font-size: 3rem; color: black;">GLOWY DAYS</h2></a>
+            <a href="/GlowyDaysProjectNew/TopProductServlet"><h2 style="font-weight: bolder; font-size: 3rem; color: black;">GLOWY DAYS</h2></a>
             <div class="navbar">
-                <a href="GuestHome.jsp">Home</a>
+                <a href="/GlowyDaysProjectNew/TopProductServlet">Home</a>
                 <a href="<%= request.getContextPath()%>/ProductServlet">Product</a>
                 <a href="<%= request.getContextPath()%>/PromotionProductsServlet">Promotion</a>              
                 <a href="AboutUs.jsp">About Us</a>                           
@@ -30,8 +30,8 @@
                 <div class="avatar-container">
                     <i class="fa-regular fa-user" style="font-size:18px; cursor:pointer;"></i> 
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="AddNewUser.jsp">Register</a>
-                        <a class="dropdown-item" href="Login.jsp">Log In</a>
+                        <a class="dropdown-item" href="/GlowyDaysProjectNew/JSP/AddNewUser.jsp">Register</a>
+                        <a class="dropdown-item" href="/GlowyDaysProjectNew/JSP/Login.jsp">Log In</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="content">
                     <span>Glow Naturally</span>
                     <h3>Experience skincare that celebrates your natural beauty, enhancing your glow from within with nourishing, organic ingredients.</h3>
-                    <a href="#" class="btn">Read More</a>
+                    <a href="<%= request.getContextPath()%>/ProductServlet" class="btn">Read More</a>
                 </div>    
             </div>
 
@@ -50,7 +50,7 @@
                 <div class="content">
                     <span>Revitalize Your Skin</span>
                     <h3>Transform your daily routine into a rejuvenating ritual with our advanced formulas that repair, hydrate, and protect.</h3>
-                    <a href="#" class="btn">Read More</a>
+                    <a href="<%= request.getContextPath()%>/ProductServlet" class="btn">Read More</a>
                 </div>    
             </div>
 
@@ -58,7 +58,7 @@
                 <div class="content">
                     <span>Embrace Your Beauty</span>
                     <h3>Unlock the power of self-care with products that empower you to feel confident, radiant, and beautifully yourself every day.</h3>
-                    <a href="#" class="btn">Read More</a>
+                    <a href="<%= request.getContextPath()%>/ProductServlet" class="btn">Read More</a>
                 </div>    
             </div>
 
@@ -72,22 +72,22 @@
 
                 <a href="#" class="box">
                     <img src="/GlowyDaysProjectNew/Category/Category_moisturizer.png">
-                    <h3>moisturizer</h3>
+                    <h3>Moisturizer</h3>
                 </a>
 
                 <a href="#" class="box">
                     <img class="img" src="/GlowyDaysProjectNew/Category/Category_eyecream.png">
-                    <h3>eye cream</h3>
+                    <h3>Eye cream</h3>
                 </a>
 
                 <a href="#" class="box">
                     <img class="img" src="/GlowyDaysProjectNew/Category/Category_sunscreen.png">
-                    <h3>sun screen</h3>
+                    <h3>Sun screen</h3>
                 </a>
 
                 <a href="#" class="box">
                     <img class="img" src="/GlowyDaysProjectNew/Category/Category_cleanser.png">
-                    <h3>cleanser</h3>
+                    <h3>Cleanser</h3>
                 </a>
 
                 <a href="#" class="box">
@@ -101,54 +101,6 @@
                 </a>                
             </div>
         </section>
-
-        <!--        <section class="featured-section">
-                    <h2 class="section-title">Top Selling Products</h2>
-                    <div class="container">
-        
-                         Cleanser Card 
-                        <div class="card">
-                            <img src="../ProductImages/GlowyCleanser.jpg?height=200&width=400" alt="Glowy Cleanser" class="card__image">
-                            <div class="card__content">
-                                <h2 class="card__title">Glowy Gentle Cleanser</h2>
-                                <p class="card__description">A soothing facial cleanser that removes dirt and impurities without stripping your skin’s natural moisture. Perfect for daily use on all skin types.</p>
-                                <button class="card__button">View Details</button>
-                            </div>
-                        </div>
-        
-                         Toner Card 
-                        <div class="card">
-                            <img src="../ProductImages/GlowyToner.jpg?height=200&width=400" alt="Glowy Toner" class="card__image">
-                            <div class="card__content">
-                                <h2 class="card__title">Glowy Hydrating Toner</h2>
-                                <p class="card__description">Refresh and rebalance your skin with our alcohol-free toner enriched with botanical extracts. Helps tighten pores and prepare your skin for the next steps.</p>
-                                <button class="card__button">View Details</button>
-                            </div>
-                        </div>
-        
-                         Vitamin C Serum Card 
-                        <div class="card">
-                            <img src="../ProductImages/GlowyVitaminC.jpg?height=200&width=400" alt="Glowy Vitamin C Serum" class="card__image">
-                            <div class="card__content">
-                                <h2 class="card__title">Glowy Vitamin C Serum</h2>
-                                <p class="card__description">Brighten and even out your skin tone with this powerful antioxidant-rich serum. Helps reduce dark spots and gives your skin a radiant glow.</p>
-                                <button class="card__button">View Details</button>
-                            </div>
-                        </div>
-        
-                         Sunscreen Card 
-                        <div class="card">
-                            <img src="../ProductImages/GlowySunscreen.jpg?height=200&width=400" alt="Glowy Sunscreen" class="card__image">
-                            <div class="card__content">
-                                <h2 class="card__title">Glowy UV Defense Sunscreen</h2>
-                                <p class="card__description">Protect your skin from harmful UVA & UVB rays with our lightweight, non-greasy sunscreen. Ideal for daily wear with no white cast.</p>
-                                <button class="card__button">View Details</button>
-                            </div>
-                        </div>
-        
-                    </div>
-                </section>-->
-
 
         <section class="featured-section">
             <div class="products-container">
@@ -207,10 +159,10 @@
 
                 <div class="box">
                     <h3>Quick Links</h3>
-                    <a href="GuestHome.jsp"><i class="fas fa-angle-right"></i> Home</a>
+                    <a href="/GlowyDaysProjectNew/TopProductServlet"><i class="fas fa-angle-right"></i> Home</a>
                     <a href="<%= request.getContextPath()%>/ProductServlet"><i class="fas fa-angle-right"></i> Product</a>
                     <a href="<%= request.getContextPath()%>/PromotionProductsServlet"><i class="fas fa-angle-right"></i> Promotion</a>
-                    <a href="AboutUs.jsp"><i class="fas fa-angle-right"></i> About Us</a>
+                    <a href="/GlowyDaysProjectNew/JSP/AboutUs.jsp"><i class="fas fa-angle-right"></i> About Us</a>
                 </div>
 
                 <div class="box">
@@ -247,6 +199,6 @@
             </div>
         </section>
 
-        <script src="../Javascript/main.js"></script>
+        <script src="/GlowyDaysProjectNew/Javascript/main.js"></script>
     </body>
 </html>

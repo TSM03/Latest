@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-    <div class="back-button">
-        <a href="Login.jsp"><i class="fas fa-arrow-left"></i> Back</a>
-    </div>
-
     <div class="password-container">
         <div class="password-card">
             <h1 class="password-title">Reset Password</h1>

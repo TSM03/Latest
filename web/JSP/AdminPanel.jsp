@@ -117,7 +117,7 @@
             <div class="menu-item">
                 <div class="menu-left">
                     <i class="fas fa-file"></i>
-                    <span><a  style="color: #fff; text-decoration: none;" href="#" onclick="loadReport()"> Report Generation</a></span>  
+                    <span><a  style="color: #fff; text-decoration: none;" href="/GlowyDaysProjectNew/ReportGenServlet"> Report Generation</a></span>  
                 </div>
             </div>
             <div class="menu-item">
@@ -249,21 +249,7 @@
                         console.error('Error loading product list:', error);
                     });
         }
-
         
-                
-        // Function to load Report 
-        function loadReport() {
-            fetch('/GlowyDaysProjectNew/ReportGenServlet')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.querySelector('.dashboard-content').innerHTML = data;
-                    })
-                    .catch(error => {
-                        console.error('Error loading product list:', error);
-                    });
-        }
-
     </script>
 </body>
     <script>
@@ -331,5 +317,5 @@
             }
 
         </script>
-<script link="../Javascript/Panel.js"></script>
+<script link="/GlowyDaysProjectNew/Javascript/Panel.js"></script>
 </html>

@@ -14,7 +14,7 @@
     String id = request.getParameter("userId");
     String driverName = "org.apache.derby.jdbc.ClientDriver";
     String connectionUrl = "jdbc:derby://localhost:1527/";
-    String dbName = "GlowyDayDB";
+    String dbName = "GlowyDaysDB";
     String userId = "nbuser";
     String password = "nbuser";
 
@@ -91,14 +91,14 @@
             <div class="menu-item">
                 <div class="menu-left">
                     <i class="fa-solid fa-box"></i>
-                    <span><a  style="color: #fff; text-decoration: none;" href="/GlowyDaysProjectNew/OrderServlett" "> Order Management</a></span>                
+                    <span><a  style="color: #fff; text-decoration: none;" href="/GlowyDaysProjectNew/OrderServlett"> Order Management</a></span>                
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-left">
                     <i class="fas fa-file"></i>
-                    <span><a  style="color: #fff; text-decoration: none;" href="#" onclick="loadReport()"> Report Generation</a></span>  
+                    <span><a  style="color: #fff; text-decoration: none;" href="/GlowyDaysProjectNew/ReportGenServlet"> Report Generation</a></span>  
                 </div>
             </div>
             <div class="menu-item">
@@ -127,15 +127,16 @@
                     <p>Control panel</p>
                 </div>
 
-                <div class="stats-grid">               
-                    <%
-                        DashboardStats stats = (DashboardStats) request.getAttribute("stats");
-                        if (stats == null) {
+                <%
+                    DashboardStats stats = (DashboardStats) request.getAttribute("stats");
+                    if (stats == null) {
                             out.println("<p style='color:red;'>Error: Dashboard statistics could not be loaded.</p>");
                             return;
                         }
-                    %>
-                    
+                %>
+
+                <div class="stats-grid">               
+
                     <div class="start-card">
                         <div class="stat-card-header blue">
                             <h2 class="number"><%= stats.getTotalOrders()%></h2>
@@ -156,13 +157,17 @@
                             <div class="label"><p class="label">Total Items Sold</p></div>
                         </div>
                     </div>
+
+
                 </div>
+
             </div>
         </div>
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-
+            
             const customerToggle = document.querySelector(".customer-toggle");
             const customerSubmenu = customerToggle.nextElementSibling; // the next .submenu after customer-toggle
             const customerArrow = customerToggle.querySelector(".menu-arrow");
@@ -183,6 +188,17 @@
             });
 
         });
+        
+        function loadStaffList() {
+            fetch('/GlowyDaysProjectNew/JSP/StaffList.jsp')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('.dashboard-content').innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error('Error loading staff list:', error);
+                    });
+        }
 
         function loadCustomerList() {
             fetch('/GlowyDaysProjectNew/JSP/CustomerManagement.jsp')
@@ -207,20 +223,72 @@
                     });
         }
 
-
-        // Function to load Order Details
-        function loadReport() {
-            fetch('/GlowyDaysProjectNew/ReportGenServlet')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.querySelector('.dashboard-content').innerHTML = data;
-                    })
-                    .catch(error => {
-                        console.error('Error loading product list:', error);
-                    });
-        }
     </script>
 </body>
+    <script>
+            function openModal(orderId) {
+                document.getElementById("trackingModal").style.display = "block";
+                document.getElementById("modalOrderId").value = orderId;
+                document.getElementById("displayOrderId").textContent = orderId;
+            }
 
+            document.querySelector(".close").onclick = function () {
+                document.getElementById("trackingModal").style.display = "none";
+            }
+
+            window.onclick = function (event) {
+
+                const modal = document.getElementById("trackingModal");
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            let sortDirection = {}; // Keep track of each column's sort direction
+
+            function sortTable(columnIndex) {
+                const table = document.querySelector(".order-table");
+                const tbody = table.querySelector("tbody");
+                const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                // Default to ascending if it's never been sorted
+                const isAsc = sortDirection[columnIndex] = sortDirection[columnIndex] === undefined ? true : !sortDirection[columnIndex];
+
+                rows.sort((a, b) => {
+                    const cellA = a.children[columnIndex].textContent.trim();
+                    const cellB = b.children[columnIndex].textContent.trim();
+
+                    const valA = isNaN(cellA) ? (Date.parse(cellA) ? new Date(cellA) : cellA.toLowerCase()) : Number(cellA);
+                    const valB = isNaN(cellB) ? (Date.parse(cellB) ? new Date(cellB) : cellB.toLowerCase()) : Number(cellB);
+
+                    if (valA < valB)
+                        return isAsc ? -1 : 1;
+                    if (valA > valB)
+                        return isAsc ? 1 : -1;
+                    return 0;
+                });
+
+                tbody.innerHTML = "";
+                rows.forEach(row => tbody.appendChild(row));
+            }
+
+            function confirmDelete(orderId) {
+                return confirm("Are you sure you want to delete Order ID: " + orderId + "?");
+            }
+
+            function filterTable() {
+                const input = document.getElementById("searchOrderId");
+                const filter = input.value.trim().toLowerCase();
+                const table = document.querySelector(".order-table");
+                const rows = table.querySelectorAll("tbody tr");
+
+                rows.forEach(row => {
+                    const orderIdCell = row.children[1]; // Order ID is the second column (index 1)
+                    const orderIdText = orderIdCell.textContent.trim().toLowerCase();
+                    row.style.display = orderIdText.includes(filter) ? "" : "none";
+                });
+            }
+
+        </script>
 <script link="../Javascript/Panel.js"></script>
 </html>

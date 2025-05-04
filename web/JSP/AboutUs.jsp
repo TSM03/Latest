@@ -14,21 +14,12 @@
         <!-- CSS -->
         <link rel="stylesheet" href="../CSS/home.css?v=3">
         <!-- <link rel="stylesheet" href="../CSS/home.css?v=2"> -->
-        <style>
-        .logo img {
-            width: 90px; /* Adjust the width according to your design */
-            height: 60px; /* Keep aspect ratio */
-            display: block;
-        }
-        </style>
     </head>
     <body>
         <section id="header" class="header">
-            <a href="GuestHome.jsp" class="logo">
-                <img src="../ICON/logo2.png" alt="Glowy Days Logo">
-            </a>
+            <a href="/GlowyDaysProjectNew/TopProductServlet"><h2 style="font-weight: bolder; font-size: 3rem; color: black;">GLOWY DAYS</h2></a>
             <div class="navbar">
-                <a href="GuestHome.jsp">Home</a>
+                <a href="/GlowyDaysProjectNew/TopProductServlet">Home</a>
                 <a href="<%= request.getContextPath()%>/ProductServlet">Product</a>
                 <a href="<%= request.getContextPath()%>/PromotionProductsServlet">Promotion</a>              
                 <a href="AboutUs.jsp">About Us</a>                           
@@ -42,8 +33,8 @@
                 <div class="avatar-container">
                     <i class="fa-regular fa-user" style="font-size:18px; cursor:pointer;"></i> 
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="AddNewUser.jsp">Register</a>
-                        <a class="dropdown-item" href="Login.jsp">Log In</a>
+                        <a class="dropdown-item" href="<%= request.getContextPath()%>/AddNewUser.jsp">Register</a>
+                        <a class="dropdown-item" href="<%= request.getContextPath()%>/Login.jsp">Log In</a>
                     </div>
                 </div>
             </div>
@@ -116,10 +107,10 @@
 
           <div class="box">
             <h3>Quick Links</h3>
-            <a href="GuestHome.jsp"><i class="fas fa-angle-right"></i> Home</a>
+            <a href="/GlowyDaysProjectNew/TopProductServlet"><i class="fas fa-angle-right"></i> Home</a>
             <a href="<%= request.getContextPath() %>/ProductServlet"><i class="fas fa-angle-right"></i> Product</a>
             <a href="<%= request.getContextPath() %>/PromotionProductsServlet"><i class="fas fa-angle-right"></i> Promotion</a>
-            <a href="AboutUs.jsp"><i class="fas fa-angle-right"></i> About Us</a>
+            <a href="<%= request.getContextPath() %>/AboutUs.jsp"><i class="fas fa-angle-right"></i> About Us</a>
           </div>
 
           <div class="box">
@@ -156,5 +147,5 @@
         </div>
      </section>
     </body>
-    <script src="../JavaScript/main.js"></script>
+    <script src="<%= request.getContextPath() %>/main.js"></script>
 </html>

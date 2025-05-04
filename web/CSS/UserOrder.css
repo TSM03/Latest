@@ -1,81 +1,153 @@
-
-.order-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-left: auto;
-    margin-right: auto;
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.3rem;
 }
 
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling - Note: This assumes your home.css has the header styles */
+/* If you need to override any header styles, do it here */
+
+/* Main Content */
+.body-section {
+    max-width: 1000px;
+    margin: 2rem auto;
+    margin-top:100px ;
+    padding: 0 1rem;
+}
+
+/* Order Container */
+.order-container {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Header */
 .table-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
 }
 
-.order-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.order-info p {
+    font-size: 1.3rem;
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.4;
 }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    border: 1px solid #e0e0e0;
-    background-color: white;
-}
-
-.btn svg {
-    width: 16px;
-    height: 16px;
+.order-info p:first-child {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #2d3748;
+    font-size: 1.1rem;
 }
 
 .status-info {
     display: flex;
     align-items: center;
-    gap: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.status-info i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.to-ship {
+    color: #e67e22;
+}
+
+.to-ship i {
+    color: #e67e22;
+}
+
+.in-transit {
+    color: #3498db;
+}
+
+.in-transit i {
+    color: #3498db;
 }
 
 .delivered {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: #10b981;
+    color: #27ae60;
 }
 
-.completed {
-    color: #f4511e;
-    font-weight: 500;
+.delivered i {
+    color: #27ae60;
 }
 
+/* Separator */
 .separator {
     height: 1px;
-    background-color: #e0e0e0;
-    margin: 16px 0;
+    background-color: #edf2f7;
+    margin: 0;
+}
+
+/* Shipping Info */
+.shipping-info {
+    padding: 1.5rem;
+    background-color: #f8fafc;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.shipping-info p {
+    margin: 0;
+    color: #4a5568;
+    font-size: 1.3rem;
+}
+
+.shipping-info strong {
+    color: #2d3748;
+    font-weight: 600;
+}
+
+/* Items Section */
+.items {
+    padding: 1.5rem;
 }
 
 .item {
     display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .item-image {
-    width: 140px;
-    height: 140px;
-    background-color: #f5f5f5;
-    border-radius: 4px;
+    width: 80px;
+    height: 80px;
+    margin-right: 1rem;
+    border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -87,76 +159,118 @@
 }
 
 .item-details {
-    flex: 1;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1;
 }
 
 .item-info {
-    padding-right: 16px;
+    flex-grow: 1;
 }
 
 .item-title {
-    font-size: 20px;
-    margin-bottom: 4px;
+    font-weight: 500;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
-.item-variant, .item-quantity {
-    font-size: 15px;
-    color: #6b7280;
-    margin-bottom: 4px;
+.item-quantity {
+    color: #718096;
+    font-size: 0.9rem;
 }
 
 .item-price {
     text-align: right;
+    flex-shrink: 0;
+    margin-left: 1rem;
 }
 
 .original-price {
-    font-size: 15px;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1.1rem;
 }
 
+/* Order Total */
 .order-total {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 8px;
+    padding: 1.5rem;
+    background-color: #f8fafc;
 }
 
 .total-label {
-    font-size: 14px;
-    color: #6b7280;
+    font-weight: 600;
+    color: #2d3748;
+    margin-right: 1rem;
+    font-size: 1.1rem;
 }
 
 .total-amount {
-    font-size: 20px;
     font-weight: 700;
-    color: #222;
+    color: #e53e3e;
+    font-size: 1.2rem;
 }
 
-.body-section {
-    padding: 3rem 9%;
-    margin-top: 50px;
-}
-
+/* No Orders Message */
 .no-orders-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
-  width: 100%;
-  margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
 }
 
 .no-orders-message {
-  text-align: center;
-  padding: 20px;
-  border-radius: 8px;
+    text-align: center;
+    padding: 3rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 500px;
 }
 
 .no-orders-message p {
-  color: #4b5563;
-  font-weight: 500;
-  margin: 0;
-  font-size: 50px;
-  letter-spacing: 0.5px;
+    font-size: 1.2rem;
+    color: #718096;
+}
+
+/* Tracking Number Badge */
+.tracking-badge {
+    display: inline-block;
+    background-color: #e2e8f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #4a5568;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+    margin-left: 0.5rem;
+}
+
+/* Status Badge */
+.status-badge {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.status-badge.to-ship {
+    background-color: #fff3e0;
+    color: #e67e22;
+}
+
+.status-badge.in-transit {
+    background-color: #e3f2fd;
+    color: #3498db;
+}
+
+.status-badge.delivered {
+    background-color: #e6f7ee;
+    color: #27ae60;
 }

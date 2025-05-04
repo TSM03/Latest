@@ -63,7 +63,7 @@ public class LoginDAO {
                 session.setAttribute("name", name);
                 session.setAttribute("birth", birth != null ? birth.toString() : null);
                 session.setAttribute("email", email);
-                session.setAttribute("mobileno", mobileNo);
+                session.setAttribute("mobileNo", mobileNo);
                 session.setAttribute("password", password);
                 session.setAttribute("role", role);
                 session.setAttribute("cart_id", cartID);

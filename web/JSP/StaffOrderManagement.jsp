@@ -163,14 +163,14 @@
             <div class="menu-item">
                 <div class="menu-left">
                     <i class="fa-solid fa-box"></i>
-                    <span><a  style="color: #fff; text-decoration: none;" href="#"> Order Management</a></span>                
+                    <span><a  style="color: #fff; text-decoration: none;" href="/GlowyDaysProjectNew/OrderServlett"> Order Management</a></span>                
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-left">
                     <i class="fas fa-file"></i>
-                    <span><a  style="color: #fff; text-decoration: none;" href="#" onclick="loadReport()"> Report Generation</a></span>  
+                    <span><a  style="color: #fff; text-decoration: none;" href="/GlowyDaysProjectNew/ReportGenServlet"> Report Generation</a></span>  
                 </div>
             </div>
             <div class="menu-item">
@@ -403,18 +403,6 @@
     // Function to load product list
     function loadProductList() {
         fetch('/GlowyDaysProjectNew/JSP/ProductList.jsp')
-                .then(response => response.text())
-                .then(data => {
-                    document.querySelector('.dashboard-content').innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error loading product list:', error);
-                });
-    }
-
-    // Function to load Report 
-    function loadReport() {
-        fetch('/GlowyDaysProjectNew/ReportGenServlet')
                 .then(response => response.text())
                 .then(data => {
                     document.querySelector('.dashboard-content').innerHTML = data;

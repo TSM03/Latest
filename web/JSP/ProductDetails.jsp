@@ -13,7 +13,7 @@
 <body>
     <div class="product-detail-container">
         <h1><%= p.getName() %></h1>
-        <img src="<%= request.getContextPath() %>/ProductImages/<%= p.getImageUrl() %>" alt="<%= p.getName() %>" width="300">
+        <img src="<%= p.getImageUrl() %>" alt="<%= p.getName() %>" width="300">
         <h2>Price: RM<%= String.format("%.2f", p.getPrice()) %></h2>
         <p><%= p.getDescription() %></p>
 

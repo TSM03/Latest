@@ -41,7 +41,7 @@ public class OrderServlett extends HttpServlet {
                     targetPage = "/JSP/StaffOrderManagement.jsp";
                     break;
                 default:
-                    targetPage = "/JSP/login.jsp";
+                    targetPage = "/JSP/Login.jsp";
                     break;
             }
 
